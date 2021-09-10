@@ -1,0 +1,22 @@
+base:
+  project: airquality-project
+  random_state: 20
+  target_col: TARGET
+
+data_source:
+  s3_source: data_given/data.csv
+
+load_data:
+  raw_dataset_csv: data/raw/data.csv
+
+split_data:
+  train_path: data/processed/train_data.csv
+  test_path: data/processed/test_data.csv
+  test_size: 0.25
+
+estimators:
+  ElasticNet:
+    params:
+      alpha: 0.011348858193777763
+      l1_ratio: 0.5
+model_dir: saved_models
