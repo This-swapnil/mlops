@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AI4I 2020 Predictive Maintenance</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="static/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/css/util.css">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+    <!-- nav bar -->
+
+    <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="/">AI4I 2020 Predictive Maintenance</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/This-swapnil/mlops">source code</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./report.html">Report</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <!-- nav bar ends -->
+        <div class="container-contact100">
+            <div class="wrap-contact100">
+                <form class="contact100-form validate-form" action="/predict" method="POST">
+                    <span class="contact100-form-title">
+                        Predict
+                    </span>
+
+                    <div class="wrap-input100 validate-input">
+                        <span class="label-input100">Process temperature</span>
+                        <input class="input100" type="number" name="pt" step="0.01" id='pt'
+                            placeholder="Process temperature expected range 305.7 to 313.8">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <span class="label-input100">Rotational speed</span>
+                        <input class="input100" type="number" name="RT"
+                            placeholder="Rotational speed expected range 1168.0 to 2886.0">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <span class="label-input100">Torque</span>
+                        <input class="input100" type="number" step="0.01" name="Torque"
+                            placeholder="Torque expected range 3.8 to 76.6">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <span class="label-input100">Tool wear</span>
+                        <input class="input100" type="number" name="TW"
+                            placeholder="Tool wear expected range 0.0 to 253.0">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <span class="label-input100">TWF</span>
+                        <input class="input100" type="number" name="TWF" placeholder="TWF expected range 0.0 to 1.0">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <span class="label-input100">HDF</span>
+                        <input class="input100" type="number" name="HDF" placeholder="HDF expected range 0.0 to 1.0">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <span class="label-input100">PWF</span>
+                        <input class="input100" type="number" name="PWF" placeholder="PWF expected range 0.0 to 1.0">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <span class="label-input100">OSF</span>
+                        <input class="input100" type="number" name="OSF" placeholder="OSF expected range 0.0 to 1.0">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <span class="label-input100">RNF</span>
+                        <input class="input100" type="number" name="RNF" placeholder="RNF expected range 0.0 to 1.0">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="container-contact100-form-btn">
+                        <div class="wrap-contact100-form-btn">
+                            <div class="contact100-form-bgbtn"></div>
+                            <button class="contact100-form-btn">
+                                <span>
+                                    Submit
+                                    <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <!-- <form class="contact100-form validate-form" ,method="POST">
+                    <div class="container-contact100-form-btn">
+                        <div class="wrap-contact100-form-btn">
+                            <div class="contact100-form-bgbtn"></div>
+                            <button class="contact100-form-btn" , onclick="window.open('profile', '_blank');">
+                                <span>
+                                    Report
+                                    <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            <input id="btntest" type="button" value="View EDA Profiling" onclick="window.open('profile', '_blank');">
+                        </div>
+                    </div>
+                </form> -->
+            </div>
+        </div>
+        <!-- <script>
+        function form_handler(event) {
+            event.preventDefault();
+        }
+    </script> -->
+</body>
+
+</html>
