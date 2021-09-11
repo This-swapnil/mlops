@@ -4,8 +4,8 @@ stages:
     cmd: python src/load_data.py --config=params.yaml
     deps:
     - path: data_given/data.csv
-      md5: 5814aa86a0b5841c523c2ba1b7eb5171
-      size: 294964
+      md5: 71e47e779beb5a1f8c72991af3d59272
+      size: 354984
     - path: src/get_data.py
       md5: 17308f780844c6fd51d278a76d441481
       size: 669
@@ -14,21 +14,47 @@ stages:
       size: 658
     outs:
     - path: data/raw/data.csv
-      md5: 954326e4b668bdfac65e2e2505bfa99e
-      size: 294964
+      md5: 499edd8b6f86069bd2ed6ae46314650f
+      size: 354984
   split_data:
     cmd: python src/split_data.py --config=params.yaml
     deps:
     - path: data/raw/data.csv
-      md5: 954326e4b668bdfac65e2e2505bfa99e
-      size: 294964
+      md5: 499edd8b6f86069bd2ed6ae46314650f
+      size: 354984
     - path: src/split_data.py
       md5: 545cf51652c0a2415209f1193740ee9a
       size: 1038
     outs:
     - path: data/processed/test_data.csv
-      md5: 8c2d87f676ae3f718bdbb13e2c84da2c
-      size: 73825
+      md5: 2c172d32a8c8024c3165dbc2ccf04ea4
+      size: 88845
     - path: data/processed/train_data.csv
-      md5: ff2872c953d1b0e7c835bec54dd47184
-      size: 221234
+      md5: 7647817ab220ff662da43a6963931731
+      size: 266254
+  train_and_evaluate:
+    cmd: python src/train_and_evaluate.py --config=params.yaml
+    deps:
+    - path: data/processed/test_data.csv
+      md5: 2c172d32a8c8024c3165dbc2ccf04ea4
+      size: 88845
+    - path: data/processed/train_data.csv
+      md5: 7647817ab220ff662da43a6963931731
+      size: 266254
+    - path: src/train_and_evaluate.py
+      md5: 22198a494de4e50e5dd3e040f31dfa01
+      size: 2570
+    params:
+      params.yaml:
+        estimators.ElasticNet.params.alpha: 0.011348858193777763
+        estimators.ElasticNet.params.l1_ratio: 0.5
+    outs:
+    - path: report/params.json
+      md5: ae98c71478fdc4e3934699a1b6a90f61
+      size: 58
+    - path: report/scores.json
+      md5: 8368c526a453cbde71f19c63927613f6
+      size: 94
+    - path: saved_models/model.joblib
+      md5: 7718c8bfda462e94b39f3d9e4f5a85f4
+      size: 706
