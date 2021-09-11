@@ -1,6 +1,6 @@
 action: GLOB, msg: packaging
 cwd: /home/swapnil/iNeuron/challenge/mlops
-cmd: /home/swapnil/anaconda3/envs/dvc-mlflow/bin/python setup.py sdist --formats=zip --dist-dir /home/swapnil/iNeuron/challenge/mlops/.tox/dist
+cmd: /home/swapnil/anaconda3/envs/dvc-mlflow/bin/python setup.py sdist --formats=zip --dist-dir .tox/dist
 /home/swapnil/anaconda3/envs/dvc-mlflow/lib/python3.9/distutils/dist.py:274: UserWarning: Unknown distribution option: 'athor'
   warnings.warn(msg)
 running sdist
@@ -35,8 +35,7 @@ copying tests/__init__.py -> src-0.0.1/tests
 copying tests/conftest.py -> src-0.0.1/tests
 copying tests/test_config.py -> src-0.0.1/tests
 Writing src-0.0.1/setup.cfg
-creating /home/swapnil/iNeuron/challenge/mlops/.tox/dist
-creating '/home/swapnil/iNeuron/challenge/mlops/.tox/dist/src-0.0.1.zip' and adding 'src-0.0.1' to it
+creating '.tox/dist/src-0.0.1.zip' and adding 'src-0.0.1' to it
 adding 'src-0.0.1'
 adding 'src-0.0.1/tests'
 adding 'src-0.0.1/src.egg-info'

@@ -8,3 +8,4 @@ sklearn
 pandas
 tox
 pytest
+flake8
