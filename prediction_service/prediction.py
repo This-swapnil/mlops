@@ -34,7 +34,7 @@ def predict(data):
     prediction = model.predict(data).tolist()[0]
 
     try:
-        if 200 <= prediction <= 304.5:
+        if 200 <= prediction <= 305:
             return prediction
         raise NotInRange
     except NotInRange:
