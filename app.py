@@ -62,11 +62,11 @@ def predict_result():
                 return render_template('result.html', result=response)
 
             elif request.json:
-                response = prediction.api_response(request, json)
+                response = prediction.api_response(request.json)
                 return jsonify(response)
 
         except Exception as e:
-            error = {'error':e}
+            error = {'error': e}
             return render_template('404.html', error=error)
     else:
         return render_template('404.html',
